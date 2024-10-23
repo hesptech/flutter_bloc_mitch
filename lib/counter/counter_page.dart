@@ -10,6 +10,9 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    
+
     return BlocProvider(
       create: (_) => CounterCubit(),
       //create: (context) => CounterCubit(0),
@@ -23,18 +26,21 @@ class CounterPage extends StatelessWidget {
             );
           }
           if (state == 10) {
+            final counterCubit = context.read<CounterCubit>();
             showDialog(
               context: context, 
-              builder: (context) => const AlertDialog(
-                title: Text('Limit Reached'),
-                content: Text('You have reached the maximum limit of 10.'),
-                // does not work ...
-                /* actions: <Widget>[
+              builder: (context) => AlertDialog(
+                title: const Text('Limit Reached'),
+                content: const Text('You have reached the maximum limit of 10.'),
+                actions: <Widget>[
                   TextButton(
-                    onPressed: () => context.read<CounterCubit>().reset(),
+                    onPressed: () {
+                      counterCubit.reset();
+                      Navigator.of(context).pop();
+                    },
                     child: const Text('Reset'),
                   ),
-                ], */
+                ],
               )
             );
           }
