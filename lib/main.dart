@@ -7,7 +7,29 @@ import 'package:flutter_bloc_mitch/data/repository/isar_todo_repo.dart';
 import 'package:flutter_bloc_mitch/domain/repository/todo_repo.dart';
 import 'package:flutter_bloc_mitch/presentation/todo_page.dart';
 
+Stream<int> counterStream() async* {
+  int i = 0;
+  while (true) {
+    await Future.delayed(const Duration(seconds: 1));
+    yield i++;
+  }
+}
+
+Stream<int> numberStream() async* {
+  for (int i = 0; i < 5; i++) {
+    await Future.delayed(const Duration(seconds: 1));
+    yield i;
+  }
+}
+
+
 void main() async {
+  /* counterStream().listen((event) {
+    print(event);
+  }); */
+
+  //numberStream().listen((arg) => print('current number is $arg'));
+
   WidgetsFlutterBinding.ensureInitialized();
 
   // get directory path for storing data
