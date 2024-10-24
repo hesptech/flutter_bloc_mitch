@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_mitch/counter_bloc/counter_screen.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 //import 'package:flutter_bloc_mitch/counter/counter_page.dart';
@@ -56,7 +57,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //home: CounterPage(),
-      home: TodoPage(todoRepo: todoRepo),
+      //home: TodoPage(todoRepo: todoRepo),
+      home: CounterScreen(),
+
     );
   }
 }
