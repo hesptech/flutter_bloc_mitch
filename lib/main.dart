@@ -56,9 +56,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      // Cubic:
       //home: CounterPage(),
-      //home: TodoPage(todoRepo: todoRepo),
-      home: CounterScreen(),
+      // Cubic Clean Architecture:
+      home: TodoPage(todoRepo: todoRepo),
+      // BLoC:
+      //home: CounterScreen(),
 
     );
   }
